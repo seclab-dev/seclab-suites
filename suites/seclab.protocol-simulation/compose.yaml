@@ -1,0 +1,48 @@
+services:
+  seclab-protocol-simulation:
+    image: guowenju/seclab-protocol-simulation:0.1.0-alpha.1
+    container_name: seclab-protocol-simulation
+    restart: unless-stopped
+    environment:
+      PORT: "8080"
+      SECLAB_SUITE_ID: seclab.protocol-simulation
+      SECLAB_SUITE_INSTANCE_ID: ${SUITE_INSTANCE_ID:-protocol-simulation-local}
+      SECLAB_SUITE_DATA_DIR: /data
+      SECLAB_FRONTEND_DIR: /app/public
+      SECLAB_AGENT_BASE_URL: ${SECLAB_AGENT_BASE_URL:-https://host.docker.internal:7311}
+      SECLAB_AGENT_SOCKET_PATH: ${SECLAB_AGENT_SOCKET_PATH:-}
+      SECLAB_AGENT_ACCEPT_INVALID_HOSTNAMES: ${SECLAB_AGENT_ACCEPT_INVALID_HOSTNAMES:-true}
+      SECLAB_AGENT_CERTS_DIR: /run/seclab-agent
+      SECLAB_SIM_ENGINE_IMAGE: guowenju/seclab-protocol-simulation-engine:0.1.0-alpha.1
+      SECLAB_SIM_CALLBACK_URL: http://seclab-protocol-simulation:8080/internal/events
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    labels:
+      seclab.owner: suite
+      seclab.suite.id: seclab.protocol-simulation
+      seclab.service.role: web
+    expose:
+      - "8080"
+    networks:
+      - seclab-suite-network
+    volumes:
+      - seclab-protocol-simulation-data:/data
+      - ${SECLAB_SUITE_RUNTIME_DIR:?suite runtime dir is required}:/run/seclab-agent:ro
+      - ${SECLAB_AGENT_SOCKET_HOST_PATH:-/dev/null}:/run/seclab-agent.sock
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8080/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  seclab-protocol-simulation-data:
+    name: seclab-protocol-simulation-data
+    labels:
+      seclab.owner: suite
+
+networks:
+  seclab-suite-network:
+    external: true
+    name: seclab-suite-network

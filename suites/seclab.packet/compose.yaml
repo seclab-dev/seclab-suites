@@ -1,0 +1,32 @@
+services:
+  seclab-packet:
+    image: guowenju/seclab-packet:0.1.0-alpha.1
+    container_name: seclab-packet
+    restart: unless-stopped
+    labels:
+      seclab.owner: suite
+      seclab.suite.id: seclab.packet
+      seclab.service.role: web
+    expose:
+      - "8080"
+    networks:
+      - seclab-suite-network
+    volumes:
+      - seclab-packet-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8080/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  seclab-packet-data:
+    name: seclab-packet-data
+    labels:
+      seclab.owner: suite
+
+networks:
+  seclab-suite-network:
+    external: true
+    name: seclab-suite-network

@@ -1,0 +1,36 @@
+services:
+  seclab-host-scanner:
+    image: guowenju/seclab-host-scanner:0.1.0-alpha.1
+    container_name: seclab-host-scanner
+    restart: unless-stopped
+    cap_add:
+      - NET_RAW
+    environment:
+      SECLAB_NETWORK_MODE: bridge
+    labels:
+      seclab.owner: suite
+      seclab.suite.id: seclab.host-scanner
+      seclab.service.role: web
+    expose:
+      - "8080"
+    networks:
+      - seclab-suite-network
+    volumes:
+      - seclab-host-scanner-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8080/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 3s
+
+volumes:
+  seclab-host-scanner-data:
+    name: seclab-host-scanner-data
+    labels:
+      seclab.owner: suite
+
+networks:
+  seclab-suite-network:
+    external: true
+    name: seclab-suite-network
