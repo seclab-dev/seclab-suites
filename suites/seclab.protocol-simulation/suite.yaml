@@ -19,6 +19,12 @@ runtime:
   network:
     name: seclab-suite-network
     external: true
+  agent:
+    services:
+      - seclab-protocol-simulation
+    capabilities:
+      - workloads.manage
+      - captures.manage
 
 services:
   - name: seclab-protocol-simulation
