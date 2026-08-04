@@ -24,4 +24,4 @@ API/UI 镜像和 engine workload 镜像分别由独立 crate 构建并单独发�
 - `.env.example`：本地打包校验使用的 Compose 变量示例。
 - `assets/suite-icon.png`：256×256 透明 PNG 套件图标。
 
-清单声明 `workloads.manage` 和 `captures.manage`，SecLab 安装器会为 API 服务生成实例隔离的 Agent 运行时挂载；交付 Compose 不包含节点模式判断。
+清单声明 `workloads.manage`、`captures.manage` 和 `operation-logs.write`，SecLab 安装器会为 API 服务生成实例隔离的 Agent 运行时挂载；交付 Compose 不包含节点模式判断。操作日志只记录规则、实例和抓包生命周期，不记录查询、进度及内部引擎事件。

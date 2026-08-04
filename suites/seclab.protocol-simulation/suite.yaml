@@ -25,6 +25,7 @@ runtime:
     capabilities:
       - workloads.manage
       - captures.manage
+      - operation-logs.write
 
 services:
   - name: seclab-protocol-simulation

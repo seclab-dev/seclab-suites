@@ -17,6 +17,11 @@ runtime:
   network:
     name: seclab-suite-network
     external: true
+  agent:
+    services:
+      - seclab-packet
+    capabilities:
+      - operation-logs.write
 
 services:
   - name: seclab-packet

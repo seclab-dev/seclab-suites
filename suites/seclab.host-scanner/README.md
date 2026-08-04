@@ -20,6 +20,8 @@
 
 ## 权限说明
 
+后端服务声明 `operation-logs.write`，用于记录扫描提交、终态和删除操作。运行时身份与令牌由 SecLab 安装器按实例注入。
+
 本套件需要执行 ICMP 探测，因此 `compose.yaml` 显式声明：
 
 ```yaml

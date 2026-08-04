@@ -12,6 +12,7 @@
 - 支持通过 Agent suite workload API 拉起和销毁规则容器。
 - 支持实例审计、PCAP 取证、空包通知和浏览器预览能力。
 - 前端接入 SecLab UI、SDL Token 和套件 SDK 的主题、语言、导航能力。
+- 接入 SecLab 套件语义操作日志，记录规则、仿真实例和抓包生命周期。
 
 ### Changed
 

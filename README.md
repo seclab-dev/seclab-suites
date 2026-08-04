@@ -109,3 +109,15 @@ suites/<suiteId>/CHANGELOG.md
 4. 发布套件时必须同步对应源码仓库的 `CHANGELOG.md` 到套件交付目录。
 5. Web 入口通过 `seclab-suite-network` 和 SecLab 代理访问。
 6. 套件建议使用 SDL Token 和 SecLab UI 组件保持视觉一致。必须遵守套件清单、权限、代理路径和安全约束。
+
+## Agent Runtime 能力
+
+套件后端在 `runtime.agent.capabilities` 中声明最小能力：
+
+| 能力 | 用途 |
+| --- | --- |
+| `workloads.manage` | 管理当前套件实例拥有的受控工作负载。 |
+| `captures.manage` | 管理当前套件工作负载的抓包任务。 |
+| `operation-logs.write` | 向平台提交关键业务操作及终态事件。 |
+
+`operation-logs.write` 只允许后端服务使用。Agent 根据实例令牌确定 suite ID、instance ID 和节点来源；套件不得声明平台用户名，也不得上报密码、令牌、命令、环境变量或业务内容正文。查询、进度和界面偏好不进入操作日志。

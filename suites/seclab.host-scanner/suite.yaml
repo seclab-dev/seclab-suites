@@ -17,6 +17,11 @@ runtime:
   network:
     name: seclab-suite-network
     external: true
+  agent:
+    services:
+      - seclab-host-scanner
+    capabilities:
+      - operation-logs.write
 
 services:
   - name: seclab-host-scanner
