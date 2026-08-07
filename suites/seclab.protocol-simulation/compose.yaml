@@ -2,6 +2,7 @@ services:
   seclab-protocol-simulation:
     image: guowenju/seclab-protocol-simulation:0.1.0-alpha.1
     container_name: seclab-protocol-simulation
+    init: true
     restart: unless-stopped
     environment:
       PORT: "8080"
