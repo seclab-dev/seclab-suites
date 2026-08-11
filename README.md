@@ -47,6 +47,13 @@ CHANGELOG.md
 
 `suite.yaml` 中的 `metadata.icon` 必须指向真实存在的 PNG 图标。套件图标统一使用 `assets/suite-icon.png`。
 
+`suite.yaml` 必须通过 `compatibility.platformContractVersion` 声明平台运行契约版本。当前首个契约版本为 `1`：
+
+```yaml
+compatibility:
+  platformContractVersion: 1
+```
+
 ## 打包
 
 打包单个套件：
@@ -109,6 +116,7 @@ suites/<suiteId>/CHANGELOG.md
 4. 发布套件时必须同步对应源码仓库的 `CHANGELOG.md` 到套件交付目录。
 5. Web 入口通过 `seclab-suite-network` 和 SecLab 代理访问。
 6. 套件建议使用 SDL Token 和 SecLab UI 组件保持视觉一致。必须遵守套件清单、权限、代理路径和安全约束。
+7. 套件必须声明正整数平台运行契约版本，并确保该版本受到目标 SecLab 版本支持。
 
 ## Agent Runtime 能力
 

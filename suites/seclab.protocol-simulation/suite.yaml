@@ -10,6 +10,9 @@ metadata:
   minSeclabVersion: 0.1.0-alpha.3
   category: tools
 
+compatibility:
+  platformContractVersion: 1
+
 runtime:
   type: compose
   composeFile: compose.yaml
