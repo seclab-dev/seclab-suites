@@ -5,7 +5,7 @@ metadata:
   slug: protocol-simulation
   version: 0.1.0-alpha.2
   name: 协议仿真
-  summary: 通过受控多端点工作负载部署 14 种协议仿真实例，并集中查看审计事件与整实例抓包。
+  summary: 通过受控多端点工作负载部署 19 种协议仿真实例，并集中查看审计事件与整实例抓包。
   icon: assets/suite-icon.png
   minSeclabVersion: 0.1.0-alpha.3
   category: tools
@@ -57,7 +57,7 @@ i18n:
     en-US:
       metadata:
         name: Protocol Simulation
-        summary: Deploy controlled multi-endpoint simulations for 14 protocols with audit events and whole-workload capture.
+        summary: Deploy controlled multi-endpoint simulations for 19 protocols with audit events and whole-workload capture.
       appEntries:
         main:
           title: Protocol Simulation

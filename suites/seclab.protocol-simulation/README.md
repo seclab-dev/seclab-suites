@@ -1,6 +1,6 @@
 # 协议仿真 (seclab.protocol-simulation)
 
-`seclab.protocol-simulation` 用于通过具名 TCP/UDP 端点的受控工作负载部署协议仿真实例，并查看实例状态、结构化审计事件和整实例 PCAP。当前支持 HTTP、Redis、SMTP、POP3、IMAP、SSH、FTP、RDP、Telnet、MySQL、PostgreSQL、SMB、LDAP 和 DNS；DNS 规则同时提供 TCP 与 UDP 端点。
+`seclab.protocol-simulation` 用于通过具名 TCP/UDP 端点的受控工作负载部署协议仿真实例，并查看实例状态、结构化审计事件和整实例 PCAP。当前支持 HTTP、Redis、SMTP、POP3、IMAP、SSH、FTP、RDP、Telnet、MySQL、PostgreSQL、SMB、LDAP、DNS、MongoDB、Memcached、SNMP、MQTT 和 VNC；DNS 同时提供 TCP 与 UDP 端点，SNMP 使用 UDP 端点。
 
 源码由 `seclab-suite-protocol-simulation` 独立维护，本目录只保存套件交付文件和固定版本镜像引用。
 

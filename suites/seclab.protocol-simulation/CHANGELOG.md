@@ -6,6 +6,7 @@
 
 ### Added
 
+- 增加 MongoDB、Memcached、SNMP、MQTT 和 VNC 服务扫描识别仿真，并支持单 UDP 端点的 SNMP 规则。
 - 增加 Telnet、MySQL、PostgreSQL、SMB、LDAP 仿真，并保持 alpha v1 契约。
 - 增加 DNS TCP/UDP 双端点仿真，默认以同一主机端口 1053 同时发布 TCP 与 UDP。
 - 支持具名多端点工作负载、整实例抓包和结构化幂等审计事件。

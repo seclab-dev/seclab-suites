@@ -6,6 +6,7 @@
 
 ### Added
 
+- 协议仿真套件能力摘要扩展至 19 种协议，增加 MongoDB、Memcached、SNMP、MQTT 和 VNC 服务发现仿真。
 - 所有套件清单声明平台运行契约版本 `1`，用于 SecLab 在升级前检测已安装套件的兼容性。
 - 提供 `.slsp` 套件包目录规范、打包脚本和 GitHub Release 发布 workflow。
 - 支持从 `suite.yaml.metadata.version` 读取套件版本并生成 `<suiteId>-<version>.slsp` 交付包。
